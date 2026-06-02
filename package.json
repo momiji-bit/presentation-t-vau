@@ -1,0 +1,21 @@
+{
+  "name": "master-slides",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "slidev-theme-academic": "latest",
+    "vue": "latest",
+    "gifler": "^0.1.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "latest"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "slidev slides.md",
+    "export": "slidev export slides.md --format pdf"
+  },
+  "devDependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest"
+  }
+}
