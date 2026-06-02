@@ -10,6 +10,7 @@ fonts:
   sans: Inter
   serif: Georgia
   mono: Fira Code
+
 ---
 
 <style>
@@ -86,6 +87,7 @@ fonts:
 </style>
 
 
+
 <div class="title-page">
   <div>
     <div class="kicker">The 2nd Workshop & Challenge on Subtle Visual Computing (SVC) @ CVPR 2026</div>
@@ -107,8 +109,14 @@ fonts:
     <img src="/logo.png" alt="lab logo" class="h-[200px] opacity-100">
   </div>
 
+
 </div>
+
 <div class="slide-no"><SlideCurrentNo /> / <SlidesTotal /></div>
+
+<!--
+Today I present T-VAU, a framework for fine-grained video anomaly understanding. The goal is simple: connect pixel-level evidence with language reasoning.
+-->
 
 ---
 
@@ -120,6 +128,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-page {
   min-height: 610px;
@@ -145,9 +154,15 @@ fonts:
   </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+I will start with the motivation. The key issue is that subtle anomalies need both precise evidence and clear explanations.
+-->
 
 ---
 
@@ -159,6 +174,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -185,6 +201,7 @@ fonts:
     <div class="mt-3 text-xs text-gray-400">Rep. works: Sultani et al. (UCF-Crime), CVPR 2018; Bergmann et al. (MVTec AD), CVPR 2019</div>
   </div>
 
+
   <div v-click="2" class="bg-white/10 rounded-xl p-5 shadow-lg border border-white/10">
     <div class="text-2xl font-semibold text-green-300">General LVLMs</div>
     <div class="text-sm mt-1 text-green-100">Large Vision-Language Models</div>
@@ -196,6 +213,7 @@ fonts:
     </div>
     <div class="mt-3 text-xs text-gray-400">Rep. works: Liu et al. (LLaVA), NeurIPS 2023; Bai et al. (Qwen-VL), arXiv 2023</div>
   </div>
+
 
 
   <div v-click="3" class="bg-white/10 rounded-xl p-5 shadow-lg border border-white/10">
@@ -210,6 +228,7 @@ fonts:
     <div class="mt-3 text-xs text-gray-400">Rep. works: Wang et al. (LaVin-DiT), CVPR 2025; Li et al. (Dual Diffusion), CVPR 2025</div>
   </div>
 
+
   <div v-click="4" class="bg-pink-500/20 rounded-xl p-5 shadow-lg border border-pink-300/30">
     <div class="text-2xl font-semibold text-pink-300">T-VAU</div>
     <div class="text-sm mt-1 text-pink-100">Text-guided Fine-Grained Video Anomaly Understanding</div>
@@ -221,11 +240,17 @@ fonts:
     </div>
     <div class="mt-3 text-xs text-pink-100">This work: Gu et al., CVPRW SVC 2026</div>
   </div>
+
 </div>
 
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+Existing paradigms solve only part of the problem. Traditional IAD and VAD give scores or heatmaps, while LVLMs give text but often miss pixel-level grounding. T-VAU connects these two sides.
+-->
 
 ---
 
@@ -247,6 +272,7 @@ fonts:
 }
 </style>
 
+
 <div class="title-main">What does video anomaly detection need to achieve?</div>
 
 <div class="absolute left-12 top-35 w-[520px]">
@@ -259,9 +285,11 @@ fonts:
     </span>
   </div>
 
+
   <div class="mt-8 text-xl text-gray-200 leading-relaxed">
     Fine-grained anomaly understanding asks the model to answer:
   </div>
+
 
   <div class="mt-6 space-y-4 text-lg">
     <div v-click="1" class="bg-white/10 rounded-lg p-4">Is there any anomaly?</div>
@@ -269,6 +297,7 @@ fonts:
     <div v-click="3" class="bg-white/10 rounded-lg p-4">What is the target's appearance?</div>
     <div v-click="4" class="bg-white/10 rounded-lg p-4">How does the target move, and why is it abnormal?</div>
   </div>
+
 </div>
 
 <div class="absolute right-12 top-46">
@@ -280,6 +309,11 @@ fonts:
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+For video anomalies, a yes-or-no answer is not enough. We need to know where the abnormal pixels are, what target is involved, and how its motion becomes abnormal.
+-->
+
 ---
 
 <style>
@@ -290,6 +324,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -315,6 +350,7 @@ fonts:
     </div>
   </div>
 
+
   <div v-click="2" class="bg-white/10 rounded-xl p-6 border border-white/10 min-h-[270px]">
     <div class="text-2xl font-semibold text-orange-300">2. Region-aware prompting</div>
     <p class="text-lg mt-5 leading-relaxed text-gray-200">
@@ -326,6 +362,7 @@ fonts:
     </div>
   </div>
 
+
   <div v-click="3" class="bg-white/10 rounded-xl p-6 border border-white/10 min-h-[270px]">
     <div class="text-2xl font-semibold text-pink-300">3. Target-level supervision</div>
     <p class="text-lg mt-5 leading-relaxed text-gray-200">
@@ -336,15 +373,22 @@ fonts:
       (Appearance + localization + trajectory)
     </div>
   </div>
+
 </div>
 
 <div v-click="4" class="absolute bottom-20 left-20 right-20 text-2xl text-center italic text-gray-200">
   The core contribution is a closed loop: visual-text alignment → anomaly heatmaps → evidence-conditioned language reasoning.
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+T-VAU adds three pieces: pixel evidence, region-aware prompting, and target-level supervision. Together, they form a closed loop from visual-text alignment to heatmaps and then to language reasoning.
+-->
 
 ---
 
@@ -356,6 +400,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-page {
   min-height: 610px;
@@ -384,6 +429,11 @@ fonts:
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+Next, I will describe the proposed method. The focus is how T-VAU turns visual evidence into prompts that an LVLM can use.
+-->
+
 ---
 
 <style>
@@ -394,6 +444,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -433,6 +484,7 @@ fonts:
 <div class="absolute left-15 top-24 w-[1150px] text-xl leading-relaxed">
   Given a video clip and multi-turn queries, T-VAU predicts:
 
+
   <div class="mt-100 mx-auto w-[1100px] grid grid-cols-3 gap-10">
     <div v-click="1" class="bg-white/10 rounded-xl p-4 border border-white/10">
       <span class="text-pink-300 font-semibold">Pixel-level spatio-temporal heatmaps</span><br>
@@ -447,10 +499,13 @@ fonts:
       <span class="text-gray-200">Frozen Qwen2.5-VL 7B backbone + AHD + RAE <br>+ LoRA prompt tuning.</span>
     </div>
   </div>
+
 </div>
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
 
 <div class="absolute left-45 top-35">
   <div class="bg-white p-2 rounded-lg shadow-lg">
@@ -464,7 +519,12 @@ fonts:
   <div v-click="2" class="loc-box loc-box-green" style="left: 3px; top: 3px; width: 160px; height: 335px;" ></div>
   <div v-click="3" class="loc-box loc-box-blue" style="left: 340px; top: 10px; width: 395px; height: 320px; " ></div>
 
+
 </div>
+
+<!--
+Given a video and multi-turn questions, T-VAU outputs heatmaps and language answers. The backbone is frozen Qwen2.5-VL 7B, while AHD, RAE, and LoRA prompt tuning provide the trainable adaptation.
+-->
 
 ---
 
@@ -476,6 +536,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -498,6 +559,7 @@ fonts:
     <div class="mt-6 text-sm text-gray-400">Visual-text similarity <br>(Element-wise cosine similarity)</div>
   </div>
 
+
   <div v-click="2" class="bg-white/10 rounded-xl p-6 border border-white/10 min-h-[270px]">
     <div class="text-2xl font-semibold text-orange-300">2. Ground</div>
     <p class="text-lg mt-5 leading-relaxed text-gray-200">
@@ -506,6 +568,7 @@ fonts:
     <div class="mt-6 text-sm text-gray-400">Anomaly Heatmap Decoder <br>(Similarity-Aware Fusion + AHD)</div>
   </div>
 
+
   <div v-click="3" class="bg-white/10 rounded-xl p-6 border border-white/10 min-h-[270px]">
     <div class="text-2xl font-semibold text-pink-300">3. Reason</div>
     <p class="text-lg mt-5 leading-relaxed text-gray-200">
@@ -513,15 +576,22 @@ fonts:
     </p>
     <div class="mt-6 text-sm text-gray-400">Region-aware Anomaly Encoder <br>(RAE + dialogue context)</div>
   </div>
+
 </div>
 
 <div v-click="4" class="absolute bottom-20 left-20 right-20 text-2xl text-center italic text-gray-200">
   Low-level anomaly evidence becomes structured language reasoning.
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+The method has three steps. First, align visual tokens with normal and abnormal text prompts. Then ground the anomaly as heatmaps, and finally use those heatmaps for reasoning.
+-->
 
 ---
 
@@ -534,6 +604,7 @@ fonts:
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -553,11 +624,13 @@ fonts:
     Generate pixel-level anomaly heatmaps by aligning visual tokens with text prompts.
   </p>
 
+
   <div class="mt-8 space-y-3 text-lg">
     <div v-click="1" class="bg-white/10 rounded-lg p-3">Text prompts: normal vs. abnormal</div>
     <div v-click="2" class="bg-white/10 rounded-lg p-3">Multiscale visual tokens: blocks 1, 8, 16, 32</div>
     <div v-click="3" class="bg-white/10 rounded-lg p-3">Similarity-Aware Fusion: <br>cosine similarity + weighted sum</div>
     <div v-click="4" class="bg-white/10 rounded-lg p-3">
+
 
 Softmax anomaly channel → heatmap $\mathbf{H}$
 
@@ -574,9 +647,15 @@ Softmax anomaly channel → heatmap $\mathbf{H}$
   </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+AHD compares multiscale visual tokens from blocks 1, 8, 16, and 32 with normal and abnormal text embeddings. The fused similarity maps are passed through softmax, and the abnormal channel becomes the heatmap.
+-->
 
 ---
 
@@ -588,6 +667,7 @@ Softmax anomaly channel → heatmap $\mathbf{H}$
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -607,19 +687,25 @@ Softmax anomaly channel → heatmap $\mathbf{H}$
     Transform heatmap evidence into prompts that the LVLM can use for multi-turn reasoning.
   </p>
 
+
   <div class="mt-8 space-y-3 text-lg">
   <div v-click="1" class="bg-white/10 rounded-lg p-3">
+
 
 Temporal difference: $\Delta\mathbf{H}_c$ captures motion cues
 
   </div>
+
   <div v-click="2" class="bg-white/10 rounded-lg p-3">Lightweight convolutional backbone extracts region-aware features</div>
   <div v-click="3" class="bg-white/10 rounded-lg p-3">
+
 
 $3\times3$ regional pooling captures local evidence
 
 </div>
+
   <div v-click="4" class="bg-white/10 rounded-lg p-3">Global pooling + learnable base tokens capture clip-level anomaly context</div>
+
   </div>
   </div>
 
@@ -632,10 +718,16 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+
+<!--
+RAE starts from the heatmap sequence and its temporal differences. It extracts local grid features, global context, and learnable base prompts, then maps them into the LVLM prompt space.
+-->
 
 ---
 
@@ -647,6 +739,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -663,23 +756,31 @@ $3\times3$ regional pooling captures local evidence
 <div class="absolute left-14 top-30 w-[450px]">
   <div class="text-2xl font-semibold text-pink-300">Dialogue flow</div>
 
+
   <div class="mt-6 space-y-5 text-lg">
   <div v-click="1" class="bg-white/10 rounded-lg p-4">
+
 
   $Q_0$: Is there any anomaly in the video?
 
   </div>
+
   <div v-click="2" class="bg-white/10 rounded-lg p-4">
+
 
   $Q_1$: Describe anomaly target features.
 
   </div>
+
   <div v-click="3" class="bg-white/10 rounded-lg p-4">
+
 
   $Q_2$: What is the motion state?
 
   </div>
+
   <div v-click="4" class="bg-white/10 rounded-lg p-4">
+
 
   $Q_3$: From where to where?
 
@@ -693,14 +794,21 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div v-click="5" class="absolute bottom-20 left-20 right-20 text-2xl text-center italic text-gray-200">
   The language output is constrained by spatial and temporal evidence, reducing target drift and hallucinated explanations.
 </div>
+
 
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+
+<!--
+The dialogue moves from simple judgment to detailed reasoning. The model first decides whether an anomaly exists, then describes the target, motion state, and trajectory using the same evidence chain.
+-->
 
 ---
 
@@ -712,6 +820,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-page {
   min-height: 610px;
@@ -740,6 +849,11 @@ $3\times3$ regional pooling captures local evidence
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+Now I will move to dataset construction. This part is needed because fine-grained reasoning requires supervision beyond masks or scores.
+-->
+
 ---
 
 <style>
@@ -750,6 +864,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -768,6 +883,7 @@ $3\times3$ regional pooling captures local evidence
     Pixel masks alone do not teach the model to explain.
   </div>
 
+
   <div class="mt-8 space-y-6 text-lg">
     <div v-click="1" class="bg-white/10 rounded-xl p-4 border border-white/10">
       VAD labels: anomaly score / mask
@@ -779,6 +895,7 @@ $3\times3$ regional pooling captures local evidence
       Solution: target-level video-text annotations derived from ShanghaiTech and UBnormal
     </div>
   </div>
+
 </div>
 
 <div class="absolute right-20 top-30 w-[550px]">
@@ -793,6 +910,11 @@ $3\times3$ regional pooling captures local evidence
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+Pixel masks tell the model where the anomaly is, but not how to describe it. T-VAU needs target identity, appearance, position, motion, and trajectory, so we build target-level video-text annotations from ShanghaiTech and UBnormal.
+-->
+
 ---
 
 <style>
@@ -803,6 +925,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -822,6 +945,7 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div class="absolute bottom-14 left-12 right-12 grid grid-cols-3 gap-4 text-base">
   <div v-click="1" class="bg-white/10 rounded-xl p-4 border border-white/10">
   <span class="text-blue-300 font-semibold">Step 1</span><br>
@@ -840,6 +964,11 @@ $3\times3$ regional pooling captures local evidence
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+The pipeline has three stages. We first extract frame-level structure, then refine it with anomaly masks and background suppression, and finally verify consistency between appearance and motion.
+-->
+
 ---
 
 <style>
@@ -850,6 +979,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -871,6 +1001,7 @@ $3\times3$ regional pooling captures local evidence
     </p>
   </div>
 
+
   <div v-click="2" class="bg-white/10 rounded-xl p-6 border border-white/10 min-h-[230px]">
     <div class="text-2xl font-semibold text-green-300">Spatio-temporal localization</div>
     <p class="text-lg mt-5 text-gray-200 leading-relaxed">
@@ -878,12 +1009,14 @@ $3\times3$ regional pooling captures local evidence
     </p>
   </div>
 
+
   <div v-click="3" class="bg-white/10 rounded-xl p-6 border border-white/10 min-h-[230px]">
     <div class="text-2xl font-semibold text-orange-300">Motion trajectory</div>
     <p class="text-lg mt-5 text-gray-200 leading-relaxed">
       Direction, state changes, and target path over time.
     </p>
   </div>
+
 </div>
 
 <div v-click="4" class="absolute bottom-22 left-20 right-20 bg-slate-900/80 rounded-xl p-6 text-xl text-center">
@@ -891,9 +1024,15 @@ $3\times3$ regional pooling captures local evidence
   Target-aligned descriptions: 5,136 ShanghaiTech samples + 7,912 UBnormal samples
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+The resulting supervision covers appearance, localization, and trajectory. It includes 4,108 training and 1,028 validation frame-wise annotations for ShanghaiTech, plus 5,136 ShanghaiTech and 7,912 UBnormal target-aligned descriptions.
+-->
 
 ---
 
@@ -905,6 +1044,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-page {
   min-height: 610px;
@@ -933,6 +1073,11 @@ $3\times3$ regional pooling captures local evidence
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+Next are the experiments. I will show localization, dialogue evaluation, ablation, and qualitative results.
+-->
+
 ---
 
 <style>
@@ -943,6 +1088,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -962,6 +1108,7 @@ $3\times3$ regional pooling captures local evidence
     Fine-tuned AHD improves micro-AUC, RBDC, and TBDC over prior baselines. Macro-AUC remains lower than the strongest multi-stream baseline.
   </p>
 
+
   <div class="mt-8 grid grid-cols-2 gap-4">
     <div v-click="1" class="bg-white/10 rounded-xl p-5 text-center">
       <div class="text-4xl font-bold text-green-300">94.8</div>
@@ -980,6 +1127,7 @@ $3\times3$ regional pooling captures local evidence
       <div class="text-gray-300 mt-2">TBDC</div>
     </div>
   </div>
+
 </div>
 
 <div v-click="5" class="absolute right-20 top-40 w-[600px]">
@@ -1066,6 +1214,7 @@ $3\times3$ regional pooling captures local evidence
     </tbody>
   </table>
 
+
   <div class="text-xs text-gray-400 mt-3 leading-relaxed text-center px-1">
   <span class="font-semibold text-gray-300">Experimental results on UBnormal.</span>
   We report micro-/macro-averaged frame-level AUC, RBDC, and TBDC (%) for the baselines
@@ -1074,11 +1223,17 @@ $3\times3$ regional pooling captures local evidence
   Although only Georgescu et al. supports anomaly localization, we report RBDC and TBDC for all baselines for completeness.
   Best results are highlighted in bold with a green background.
 </div>
+
 </div>
 
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+On UBnormal, fine-tuned AHD reaches 94.8 micro-AUC, 87.8 macro-AUC, 67.8 RBDC, and 76.7 TBDC. It improves localization-oriented metrics over prior baselines, while macro-AUC remains below the strongest multi-stream baseline.
+-->
 
 ---
 
@@ -1090,6 +1245,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -1109,6 +1265,7 @@ $3\times3$ regional pooling captures local evidence
     One-shot evaluation compares representative LVLMs on target description, trajectory description, and Yes/No judgment.
   </p>
 
+
   <div class="mt-8 space-y-4 text-lg">
       <div v-click="1" class="bg-white/10 rounded-lg p-4">
         ShanghaiTech: <span class="text-green-300 font-semibold">62.67</span> Target BLEU-4,
@@ -1122,6 +1279,7 @@ $3\times3$ regional pooling captures local evidence
         <span class="text-green-300 font-semibold">89.73%</span> Yes/No
       </div>
     </div>
+
   </div>
 
 <div v-click="4" class="absolute right-6 top-48 w-[660px]">
@@ -1230,9 +1388,15 @@ $3\times3$ regional pooling captures local evidence
 </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+For multi-turn dialogue, RAE gives the best one-shot results in this table. On ShanghaiTech it reaches 62.67 Target BLEU-4, 88.84 Trajectory BLEU-4, and 97.67 percent Yes/No accuracy. On UBnormal it reaches 50.32 and 78.10 BLEU-4, with 89.73 percent Yes/No accuracy.
+-->
 
 ---
 
@@ -1244,6 +1408,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -1271,6 +1436,7 @@ $3\times3$ regional pooling captures local evidence
     </div>
   </div>
 </div>
+
 
 <div v-click="4" class="absolute right-8 top-50 w-[660px]">
   <table class="w-full text-[10px] bg-white/10 rounded-lg overflow-hidden border-collapse">
@@ -1340,9 +1506,15 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+The ablation shows that AHD and RAE play different roles. AHD supplies local heatmap evidence, and RAE converts that evidence into useful language prompts. The full model gives the best complete result.
+-->
 
 ---
 
@@ -1354,6 +1526,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-page {
   min-height: 610px;
@@ -1382,6 +1555,11 @@ $3\times3$ regional pooling captures local evidence
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
 
+
+<!--
+Finally, I show qualitative results. These examples check whether the model's text is supported by spatial and temporal evidence.
+-->
+
 ---
 
 <style>
@@ -1392,6 +1570,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -1411,6 +1590,7 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div class="absolute bottom-10 left-10 right-10 grid grid-cols-3 gap-4 text-base">
   <div v-click="1" class="bg-white/10 rounded-xl p-4 border border-white/10">
     <span class="text-green-300 font-semibold">AHD</span> localizes the abnormal target rather than the whole scene.
@@ -1423,9 +1603,15 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+In these examples, AHD focuses on the anomalous target instead of the whole scene. RAE then keeps the answers consistent across anomaly judgment, appearance, motion, and trajectory.
+-->
 
 ---
 
@@ -1437,6 +1623,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -1456,12 +1643,18 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div v-click="1" class="absolute bottom-20 left-20 right-20 text-2xl text-center italic text-gray-200">
   Accumulated predictions follow the ground-truth anomaly regions over time, supporting motion and trajectory reasoning.
 </div>
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+<!--
+The accumulated masks and boxes show how predictions move over time. The predicted trajectory follows the ground-truth anomaly regions, supporting the motion explanation.
+-->
+
 ---
 
 <style>
@@ -1472,6 +1665,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-main {
   font-size: 46px;
@@ -1493,11 +1687,13 @@ $3\times3$ regional pooling captures local evidence
     <span class="text-pink-300">language reasoning</span>.
   </div>
 
+
   <div class="mt-8 space-y-4 text-lg">
     <div v-click="1" class="bg-white/10 rounded-xl p-4 border border-white/10"><span class="text-green-300 font-semibold">AHD</span>: threshold-free spatio-temporal anomaly heatmaps</div>
     <div v-click="2" class="bg-white/10 rounded-xl p-4 border border-white/10"><span class="text-orange-300 font-semibold">RAE</span>: region-aware and motion-aware prompt injection</div>
     <div v-click="3" class="bg-white/10 rounded-xl p-4 border border-white/10"><span class="text-blue-300 font-semibold">Dataset</span>: target-level appearance, localization, and trajectory supervision</div>
   </div>
+
 </div>
 
 <div class="absolute right-12 top-35 w-[560px]">
@@ -1505,6 +1701,7 @@ $3\times3$ regional pooling captures local evidence
     <img src="/figs/tvau_teaser.png" class="w-full rounded" />
   </div>
 </div>
+
 
 <div v-click="4" class="absolute left-1/2 bottom-10 w-[900px] -translate-x-1/2 bg-white/10 rounded-xl px-4 py-3 border border-white/10">
   <div class="text-base font-semibold text-blue-300">Possible next directions</div>
@@ -1515,9 +1712,15 @@ $3\times3$ regional pooling captures local evidence
   </div>
 </div>
 
+
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+The takeaway is that T-VAU closes the loop from pixel evidence to language reasoning. AHD localizes the anomaly, RAE injects the evidence into the LVLM, and the dataset supervises target-level appearance, localization, and trajectory.
+-->
 
 ---
 
@@ -1529,6 +1732,7 @@ $3\times3$ regional pooling captures local evidence
   background: #000000;
   color: #f8fafc;
 }
+
 
 .title-page {
   min-height: 610px;
@@ -1549,7 +1753,8 @@ $3\times3$ regional pooling captures local evidence
 </style>
 
 <div class="absolute left-14 top-8 w-[800px]">
-  
+
+
 <div class="mt-8 flex items-center gap-4">
   <img
     src="/profile.png"
@@ -1565,8 +1770,10 @@ $3\times3$ regional pooling captures local evidence
 
 
 
+
 <div class="mt-8 bg-white/10 rounded-xl p-5 border border-white/10 text-gray-200">
   <div class="font-semibold text-pink-300 mb-3">BibTeX</div>
+
 
   <pre class="m-0 text-[13px] leading-relaxed font-mono whitespace-pre-wrap break-words text-gray-200"><code>@inproceedings{gu2026tvau,
   author    = {Gu, Jihao and Li, Kun and Wang, He and Ak{\c{s}}it, Kaan},
@@ -1577,11 +1784,13 @@ $3\times3$ regional pooling captures local evidence
   address   = {Denver, CO, USA},
   url       = {https://openaccess.thecvf.com/content/CVPR2026W/SVC/html/Gu_Text-guided_Fine-Grained_Video_Anomaly_Understanding_CVPRW_2026_paper.html},
 }</code></pre>
+
 </div>
 
   <div class="mt-5 bg-blue-500/15 rounded-xl p-5 border border-blue-300/20 text-lg leading-relaxed text-blue-50">
     Acknowledgments: Alex Chapiro; HPC system at the United Arab Emirates University.
   </div>
+
 </div>
 
 <div class="absolute bottom-20 right-14">
@@ -1593,3 +1802,8 @@ $3\times3$ regional pooling captures local evidence
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
+
+
+<!--
+Thank you. The main message is that subtle video anomalies need evidence-grounded reasoning, not only anomaly scores. I am happy to discuss questions.
+-->
