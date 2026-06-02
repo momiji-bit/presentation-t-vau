@@ -1792,7 +1792,11 @@ The takeaway is that T-VAU closes the loop from pixel evidence to language reaso
 
 </div>
 
-<div class="absolute bottom-20 right-14">
+<div class="absolute bottom-10 right-32">
+    <img src="./assets/qr-code.png" alt="lab logo" class="h-[160px] opacity-100">
+<a href="#" class="text-2xl text-gray-100 hover:text-blue-400 transition-colors font-semibold">Project Page</a>
+  </div>
+<div class="absolute bottom-65 right-23">
     <img src="./assets/logo.png" alt="lab logo" class="h-[200px] opacity-100">
   </div>
 <div class="absolute right--3 up-20">
@@ -1801,7 +1805,6 @@ The takeaway is that T-VAU closes the loop from pixel evidence to language reaso
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
-
 
 <!--
 Thank you. The main message is that subtle video anomalies need evidence-grounded reasoning, not only anomaly scores. I am happy to discuss questions.
