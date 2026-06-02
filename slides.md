@@ -302,13 +302,12 @@ Existing paradigms solve only part of the problem. Traditional IAD and VAD give 
 
 <div class="absolute right-12 top-46">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_teaser.png" class="w-[560px] h-auto rounded" />
+    <img src="/tvau_teaser.png" alt="sensor" class="w-[560px] h-auto rounded" />
   </div>
 </div>
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
 </div>
-
 
 <!--
 For video anomalies, a yes-or-no answer is not enough. We need to know where the abnormal pixels are, what target is involved, and how its motion becomes abnormal.
@@ -509,7 +508,7 @@ Next, I will describe the proposed method. The focus is how T-VAU turns visual e
 
 <div class="absolute left-45 top-35">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_framework.png" class="w-[900px] h-auto rounded" />
+    <img src="/tvau_framework.png" class="w-[900px] h-auto rounded" />
   </div>
     <div class="caption text-center mt-1">
     Framework overview: Text Encoder + AHD + RAE + LVLM decoder.
@@ -640,7 +639,7 @@ Softmax anomaly channel → heatmap $\mathbf{H}$
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/AHD.png" class="w-full rounded" />
+    <img src="/AHD.png" class="w-full rounded" />
   </div>
   <div class="text-center text-sm text-gray-400 mt-2">
     Focus: Text Encoder + AHD + Similarity-Aware Fusion
@@ -711,7 +710,7 @@ $3\times3$ regional pooling captures local evidence
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/RAE.png" class="w-full rounded" />
+    <img src="/RAE.png" class="w-full rounded" />
   </div>
   <div class="text-center text-sm text-gray-400 mt-2">
     Focus: heatmap evidence → region-aware prompt embedding → LVLM response
@@ -790,7 +789,7 @@ RAE starts from the heatmap sequence and its temporal differences. It extracts l
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_vis1.png" class="w-full rounded" />
+    <img src="/tvau_vis1.png" class="w-full rounded" />
   </div>
 </div>
 
@@ -900,7 +899,7 @@ Now I will move to dataset construction. This part is needed because fine-graine
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/ubnormal_examples.png" class="w-full rounded" />
+    <img src="/ubnormal_examples.png" class="w-full rounded" />
   </div>
   <div class="text-center text-sm text-gray-400 mt-2">
     UBnormal dataset examples (label mask only)
@@ -941,7 +940,7 @@ Pixel masks tell the model where the anomaly is, but not how to describe it. T-V
 
 <div class="absolute top-25 left-1/2 -translate-x-1/2 w-[900px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_dataset.png" class="w-full h-auto rounded" />
+    <img src="/tvau_dataset.png" class="w-full h-auto rounded" />
   </div>
 </div>
 
@@ -1586,7 +1585,7 @@ Finally, I show qualitative results. These examples check whether the model's te
 
 <div class="absolute top-30 left-1/2 -translate-x-1/2 w-[1100px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_vis1_1.png" class="w-full h-auto rounded" />
+    <img src="/tvau_vis1_1.png" class="w-full h-auto rounded" />
   </div>
 </div>
 
@@ -1639,7 +1638,7 @@ In these examples, AHD focuses on the anomalous target instead of the whole scen
 
 <div class="absolute top-35 left-6 right-6">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_vis2.png" class="w-full h-auto rounded" />
+    <img src="/tvau_vis2.png" class="w-full h-auto rounded" />
   </div>
 </div>
 
@@ -1698,7 +1697,7 @@ The accumulated masks and boxes show how predictions move over time. The predict
 
 <div class="absolute right-12 top-35 w-[560px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/figs/tvau_teaser.png" class="w-full rounded" />
+    <img src="/tvau_teaser.png" class="w-full rounded" />
   </div>
 </div>
 
