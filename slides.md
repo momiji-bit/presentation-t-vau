@@ -103,10 +103,10 @@ fonts:
     </div>
   </div>
 <div class="absolute bottom-20 right-80">
-    <img src="/CVPR_Denver_2026.jpg" alt="lab logo" class="h-[200px] opacity-100">
+    <img src="./assets/CVPR_Denver_2026.jpg" alt="lab logo" class="h-[200px] opacity-100">
   </div>
   <div class="absolute bottom-20 right-14">
-    <img src="/logo.png" alt="lab logo" class="h-[200px] opacity-100">
+    <img src="./assets/logo.png" alt="lab logo" class="h-[200px] opacity-100">
   </div>
 
 
@@ -302,7 +302,7 @@ Existing paradigms solve only part of the problem. Traditional IAD and VAD give 
 
 <div class="absolute right-12 top-46">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_teaser.png" alt="sensor" class="w-[560px] h-auto rounded" />
+    <img src="./assets/tvau_teaser.png" alt="sensor" class="w-[560px] h-auto rounded" />
   </div>
 </div>
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
@@ -508,7 +508,7 @@ Next, I will describe the proposed method. The focus is how T-VAU turns visual e
 
 <div class="absolute left-45 top-35">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_framework.png" class="w-[900px] h-auto rounded" />
+    <img src="./assets/tvau_framework.png" class="w-[900px] h-auto rounded" />
   </div>
     <div class="caption text-center mt-1">
     Framework overview: Text Encoder + AHD + RAE + LVLM decoder.
@@ -639,7 +639,7 @@ Softmax anomaly channel → heatmap $\mathbf{H}$
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/AHD.png" class="w-full rounded" />
+    <img src="./assets/AHD.png" class="w-full rounded" />
   </div>
   <div class="text-center text-sm text-gray-400 mt-2">
     Focus: Text Encoder + AHD + Similarity-Aware Fusion
@@ -710,7 +710,7 @@ $3\times3$ regional pooling captures local evidence
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/RAE.png" class="w-full rounded" />
+    <img src="./assets/RAE.png" class="w-full rounded" />
   </div>
   <div class="text-center text-sm text-gray-400 mt-2">
     Focus: heatmap evidence → region-aware prompt embedding → LVLM response
@@ -789,7 +789,7 @@ RAE starts from the heatmap sequence and its temporal differences. It extracts l
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_vis1.png" class="w-full rounded" />
+    <img src="./assets/tvau_vis1.png" class="w-full rounded" />
   </div>
 </div>
 
@@ -899,7 +899,7 @@ Now I will move to dataset construction. This part is needed because fine-graine
 
 <div class="absolute right-20 top-30 w-[550px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/ubnormal_examples.png" class="w-full rounded" />
+    <img src="./assets/ubnormal_examples.png" class="w-full rounded" />
   </div>
   <div class="text-center text-sm text-gray-400 mt-2">
     UBnormal dataset examples (label mask only)
@@ -940,7 +940,7 @@ Pixel masks tell the model where the anomaly is, but not how to describe it. T-V
 
 <div class="absolute top-25 left-1/2 -translate-x-1/2 w-[900px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_dataset.png" class="w-full h-auto rounded" />
+    <img src="./assets/tvau_dataset.png" class="w-full h-auto rounded" />
   </div>
 </div>
 
@@ -1585,7 +1585,7 @@ Finally, I show qualitative results. These examples check whether the model's te
 
 <div class="absolute top-30 left-1/2 -translate-x-1/2 w-[1100px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_vis1_1.png" class="w-full h-auto rounded" />
+    <img src="./assets/tvau_vis1_1.png" class="w-full h-auto rounded" />
   </div>
 </div>
 
@@ -1638,7 +1638,7 @@ In these examples, AHD focuses on the anomalous target instead of the whole scen
 
 <div class="absolute top-35 left-6 right-6">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_vis2.png" class="w-full h-auto rounded" />
+    <img src="./assets/tvau_vis2.png" class="w-full h-auto rounded" />
   </div>
 </div>
 
@@ -1697,7 +1697,7 @@ The accumulated masks and boxes show how predictions move over time. The predict
 
 <div class="absolute right-12 top-35 w-[560px]">
   <div class="bg-white p-2 rounded-lg shadow-lg">
-    <img src="/tvau_teaser.png" class="w-full rounded" />
+    <img src="./assets/tvau_teaser.png" class="w-full rounded" />
   </div>
 </div>
 
@@ -1756,7 +1756,7 @@ The takeaway is that T-VAU closes the loop from pixel evidence to language reaso
 
 <div class="mt-8 flex items-center gap-4">
   <img
-    src="/profile.png"
+    src="./assets/profile.png"
     alt="profile photo"
     class="w-[160px] h-[160px] rounded-full object-cover border-2 border-white/20 shadow-lg"
   >
@@ -1793,10 +1793,10 @@ The takeaway is that T-VAU closes the loop from pixel evidence to language reaso
 </div>
 
 <div class="absolute bottom-20 right-14">
-    <img src="/logo.png" alt="lab logo" class="h-[200px] opacity-100">
+    <img src="./assets/logo.png" alt="lab logo" class="h-[200px] opacity-100">
   </div>
 <div class="absolute right--3 up-20">
-  <img src="/CVPR_Logo1_Denver_2026_Color.png" alt="CVPR Denver" class="h-[210px] rounded-lg opacity-100">
+  <img src="./assets/CVPR_Logo1_Denver_2026_Color.png" alt="CVPR Denver" class="h-[210px] rounded-lg opacity-100">
 </div>
 <div class="absolute bottom-4 right-6 text-sm text-gray-400">
   <SlideCurrentNo /> / <SlidesTotal />
